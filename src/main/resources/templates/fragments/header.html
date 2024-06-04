@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko-KR" xmlns:th="http://www.thymeleaf.org">
+<th:block th:fragment="header">
+    <meta charset="UTF-8">
+    <div th:style="${'display:flex; justify-content: center;'}">
+        <span th:style="${'font-size:40px'}">Sinsa</span>
+    </div>
+    <div>
+        <button th:style="${'float: right;'}" th:onclick="goBack()">뒤로가기</button>
+    </div>
+
+    <br>
+    <br>
+</th:block>
+</html>
+
+<script th:inline="javascript">
+    function goBack() {
+        history.go(-1)
+    }
+</script>

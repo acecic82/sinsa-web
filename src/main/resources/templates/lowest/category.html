@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <table th:style="${'border-collapse:collapse'}" role="grid">
+        <thread>
+            <tr>
+                <th style="width: 8%; text-align: center">Category</th>
+                <th style="width: 8%; text-align: center">Brand</th>
+                <th style="width: 8%; text-align: center">Price</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr role="row" th:each="product : ${products}">
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.category}"></td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.brand}"></td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.price}"></td>
+        </tr>
+        <tr>
+            <td>
+                <br>
+            </td>
+        </tr>
+        <tr >
+            <td style="text-align: center; vaertical-align: middle;" th:text="총액"></td>
+            <td style="text-align: center; vaertical-align: middle;">  </td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${totalPrice}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

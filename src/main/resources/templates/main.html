@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'display:flex; justify-content: center;'}">
+
+    <form id="lowestAllCategory" action="/product/lowest/all-category" method="get">
+
+        <div th:style="${'margin-top: 70px;'}">
+            <button th:style="${'padding: 10px;background: #0f0;color: #000;font-weight: 600;font-size: 1.35em;'
+            + 'letter-spacing: 0.05em; cursor: pointer; width: 100%;'}"
+                    type="submit" >모든 카테고리에서 가장 싼 브랜드 확인하기</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div th:style="${'display:flex; justify-content: center;'}">
+
+    <form id="lowestAllBrand" action="/product/lowest/brand" method="get">
+
+        <div th:style="${'margin-top: 70px;'}">
+            <button th:style="${'padding: 10px;background: #0f0;color: #000;font-weight: 600;font-size: 1.35em;'
+            + 'letter-spacing: 0.05em; cursor: pointer; width: 100%;'}"
+                    type="submit" >모든 카테고리 구매시 가장 싼 브랜드 확인하기</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div th:style="${'display:flex; justify-content: center;'}">
+
+    <form id="lowAndHighCategory" action="/product/low-high/category/" method="get">
+
+        <div th:style="${'margin-top: 70px;'}">
+            <button th:style="${'padding: 10px;background: #0f0;color: #000;font-weight: 600;font-size: 1.35em;'
+            + 'letter-spacing: 0.05em; cursor: pointer; width: 100%;'}"
+                    type="submit" >카테고리로 최저,최고 브랜드 검색하러 가기</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div th:style="${'display:flex; justify-content: center;'}">
+
+    <form id="showAll" action="/product/all" method="get">
+
+        <div th:style="${'margin-top: 70px;'}">
+            <button th:style="${'padding: 10px;background: #0f0;color: #000;font-weight: 600;font-size: 1.35em;'
+            + 'letter-spacing: 0.05em; cursor: pointer; width: 100%;'}"
+                    type="submit" >전체 상품 보기(수정, 삭제)</button>
+        </div>
+
+    </form>
+
+    <form id="saveProduct" action="/product/save" method="get">
+
+        <div th:style="${'margin-top: 70px;'}">
+            <button th:style="${'padding: 10px;background: #0f0;color: #000;font-weight: 600;font-size: 1.35em;'
+            + 'letter-spacing: 0.05em; cursor: pointer; width: 100%;'}"
+                    type="submit" >상품 추가하기</button>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>

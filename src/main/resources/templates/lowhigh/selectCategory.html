@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <div>카테고리</div>
+    <form id="categoryForm" action="/product/low-high/category" method="post" >
+        <label>
+            <input type="text" name="category" placeholder="category">
+        </label>
+        <button type="submit" >최대, 최소 가격 알아보기</button>
+    </form>
+</div>
+<br>
+<div>최대 리스트</div>
+<div th:style="${'display:flex'}" th:unless="${not #lists.isEmpty(maxList)}">정보가 없습니다.</div>
+<table th:style="${'border-collapse:collapse'}" role="grid">
+    <tbody>
+
+    <tr role="column" th:each="product : ${maxList}">
+        <td style="text-align: center; vaertical-align: middle;">브랜드 : </td>
+        <td style="text-align: center; vaertical-align: middle;" th:text="${product.brand}"></td>
+        <td style="text-align: center; vaertical-align: middle;">가격 : </td>
+        <td style="text-align: center; vaertical-align: middle;" th:text="${product.price}">
+    </tr>
+
+    </tbody>
+</table>
+<div>최소 리스트</div>
+<div th:style="${'display:flex'}" th:unless="${not #lists.isEmpty(minList)}">정보가 없습니다.</div>
+<table th:style="${'border-collapse:collapse'}" role="grid">
+    <tbody>
+
+    <tr role="column" th:each="product : ${minList}">
+        <td style="text-align: center; vaertical-align: middle;">브랜드 : </td>
+        <td style="text-align: center; vaertical-align: middle;" th:text="${product.brand}"></td>
+        <td style="text-align: center; vaertical-align: middle;">가격 : </td>
+        <td style="text-align: center; vaertical-align: middle;" th:text="${product.price}">
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

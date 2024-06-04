@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <form id="productForm" action="/product/save" method="post" >
+        <label>
+            <input type="text" name="category" placeholder="category">
+            <input type="text" name="brand" placeholder="brand">
+            <input type="text" name="price" placeholder="price">
+        </label>
+        <button type="submit" >저장하기</button>
+    </form>
+</div>
+
+</body>
+</html>

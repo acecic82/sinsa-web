@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <form id="productForm" action="/product/update" method="post" >
+        <label>
+            <span>ID:</span>
+            <span th:text="${productId}"></span>
+            <input type="hidden" name="productId" th:value="${productId}">
+            <span>  카테고리:</span>
+            <input type="text" name="category" placeholder="category">
+            <span>브랜드:</span>
+            <input type="text" name="brand" placeholder="brand">
+            <span>가격:</span>
+            <input type="number" name="price" placeholder="price">
+        </label>
+        <button type="submit" >수정하기</button>
+    </form>
+</div>
+
+</body>
+</html>

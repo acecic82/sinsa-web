@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <table th:style="${'border-collapse:collapse'}" role="grid">
+        <thread>
+            <tr>
+                <th style="width: 8%; text-align: center">ID</th>
+                <th style="width: 8%; text-align: center">Category</th>
+                <th style="width: 8%; text-align: center">Brand</th>
+                <th style="width: 8%; text-align: center">Price</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr role="row" th:each="product : ${list}">
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.productId}"></td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.category}"></td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.brand}"></td>
+            <td style="text-align: center; vaertical-align: middle;" th:text="${product.price}"></td>
+
+            <td style="text-align: center;">
+                <a th:href="@{'/product/update/' + ${product.productId}}"
+                   th:style="${'margin-right:25px;'}">
+                    <button th:style="${'background: blue; color:white;'}" th:text="수정하기"></button>
+                </a>
+                <form id="productForm" action="/product/delete" method="post">
+                    <input type="hidden" name="productId" th:value="${product.productId}">
+                    <input type="hidden" name="category" th:value="${product.category}">
+                    <input type="hidden" name="brand" th:value="${product.brand}">
+                    <input type="hidden" name="price" th:value="${product.price}">
+                    <button th:style="${'margin-right:25px;background: red; color:white;'}" type="submit" th:text="삭제하기"></button>
+                </form>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
