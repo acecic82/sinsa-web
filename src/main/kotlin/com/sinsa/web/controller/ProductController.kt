@@ -124,7 +124,7 @@ class ProductController(
     @PostMapping("/update")
     fun update(productForm: ProductForm): String {
         val productInfoDTO = ProductInfoDTO(
-            null, productForm.category, productForm.brand, BigDecimal(productForm.price))
+            productForm.productId, productForm.category, productForm.brand, BigDecimal(productForm.price))
 
         val result = productClient.update(productInfoDTO)
 
