@@ -6,6 +6,10 @@
         <span th:style="${'font-size:40px'}">Sinsa</span>
     </div>
     <div>
+        <a th:href="@{'/product'}"
+           th:style="${'margin-right:25px;'}">
+            <button th:style="${'background: blue; color:white;'}" th:text="main으로가기"></button>
+        </a>
         <button th:style="${'float: right;'}" th:onclick="goBack()">뒤로가기</button>
     </div>
 
