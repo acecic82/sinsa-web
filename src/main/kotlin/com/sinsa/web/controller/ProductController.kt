@@ -1,9 +1,12 @@
 package com.sinsa.web.controller
 
 import com.sinsa.web.client.ProductClient
+import com.sinsa.web.common.Converter
+import com.sinsa.web.controller.form.BrandForm
 import com.sinsa.web.controller.form.CategoryForm
 import com.sinsa.web.controller.form.ProductForm
 import com.sinsa.web.dto.ProductInfoDTO
+import com.sinsa.web.dto.SaveBrandDTO
 import com.sinsa.web.exception.BusinessException
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -29,8 +32,8 @@ class ProductController(
             throw BusinessException(result.code, result.message)
         }
 
-        model.addAttribute("products", result.content?.categoryAndBrandInfoVOList)
-        model.addAttribute("totalPrice", result.content?.totalPrice)
+        model.addAttribute("products", result.content.categoryAndBrandInfoVOList)
+        model.addAttribute("totalPrice", result.content.totalPrice)
 
         return "lowest/category"
     }
@@ -62,8 +65,8 @@ class ProductController(
             throw BusinessException(result.code, result.message)
         }
 
-        model.addAttribute("maxList", result.content?.highestBrandList)
-        model.addAttribute("minList", result.content?.lowestBrandList)
+        model.addAttribute("maxList", result.content.highestBrandList)
+        model.addAttribute("minList", result.content.lowestBrandList)
 
         return "lowhigh/selectCategory"
     }
@@ -133,5 +136,24 @@ class ProductController(
         }
 
         return  "redirect:/product/all"
+    }
+
+    @GetMapping("/brand/save")
+    fun brandSave(): String {
+        return "brand/save"
+    }
+
+    @PostMapping("/brand/save")
+    fun brandSave(brandForm: BrandForm): String {
+        val productList = Converter.brandFormToProductList(brandForm)
+        val saveBrandDTO = SaveBrandDTO(brandForm.brand, productList)
+
+        val result = productClient.saveBrand(saveBrandDTO)
+
+        if(result.content == null) {
+            throw BusinessException(result.code, result.message)
+        }
+
+        return "brand/save"
     }
 }

@@ -1,10 +1,7 @@
 package com.sinsa.web.client
 
 import com.sinsa.web.common.ResponseDTO
-import com.sinsa.web.dto.LowHighBrandInfoDTO
-import com.sinsa.web.dto.LowestBrandInfoDTO
-import com.sinsa.web.dto.LowestCategoryInfoDTO
-import com.sinsa.web.dto.ProductInfoDTO
+import com.sinsa.web.dto.*
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.*
 
@@ -52,4 +49,10 @@ interface ProductClient {
         produces = ["application/json"]
     )
     fun update(@RequestBody productInfoDTO: ProductInfoDTO): ResponseDTO<Boolean>
+
+    @PostMapping(
+        "/product/brand/save",
+        produces = ["application/json"]
+    )
+    fun saveBrand(@RequestBody saveBrandDTO: SaveBrandDTO): ResponseDTO<Boolean>
 }

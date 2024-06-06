@@ -13,11 +13,11 @@
             <span th:text="${productId}"></span>
             <input type="hidden" name="productId" th:value="${productId}">
             <span>  카테고리:</span>
-            <input type="text" name="category" placeholder="category">
+            <input type="text" name="category" placeholder="category" required>
             <span>브랜드:</span>
-            <input type="text" name="brand" placeholder="brand">
+            <input type="text" name="brand" placeholder="brand" required>
             <span>가격:</span>
-            <input type="number" name="price" placeholder="price">
+            <input type="number" name="price" placeholder="price" required>
         </label>
         <button type="submit" >수정하기</button>
     </form>

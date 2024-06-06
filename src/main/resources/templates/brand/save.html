@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div id="header" th:replace="fragments/header"></div>
+</head>
+
+<body>
+
+<div th:style="${'flex: 0 0 100%; max-width: 100%;'}" >
+    <div>
+        <h3>브랜드를 추가합니다.</h3>
+    </div>
+    <form id="brandForm" action="/product/brand/save" method="post" >
+        <label>
+            <span>브랜드:</span>
+            <input type="text" name="brand" required>
+        </label>
+        <br>
+        <label>
+            <span>상의:</span>
+            <input type="number" name="shirts" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>아우터:</span>
+            <input type="number" name="outer" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>바지:</span>
+            <input type="number" name="pants" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>스니커즈:</span>
+            <input type="number" name="sneakers" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>가방:</span>
+            <input type="number" name="bag" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>모자:</span>
+            <input type="number" name="cap" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>양말:</span>
+            <input type="number" name="shocks" required>
+            <span>원</span>
+        </label>
+        <br>
+        <label>
+            <span>액세서리:</span>
+            <input type="number" name="accessories" required>
+            <span>원</span>
+        </label>
+        <br>
+        <button id="btn_save" type="submit" >저장하기</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js" /></script>
+<script>
+    $(function() {
+        $("#btn_save").click(function(){
+            $("input[name='category[]']").each(function(index) {
+                alert(index)
+            });
+        });
+    });
+</script>
